@@ -1,0 +1,90 @@
+---
+import { SITE } from '../lib/site';
+
+const nav = [
+  { label: 'VP & Handover', href: '/vp-handover/', sub: 'Defects · DLP' },
+  { label: 'Loan', href: '/loan/', sub: 'MOT · Stamp duty' },
+  { label: 'Fit-out', href: '/fit-out/', sub: 'Pre-renovation' },
+  { label: 'Renovate', href: '/renovate/', sub: 'Timing · Selection' },
+  { label: 'Pindah', href: '/pindah/', sub: 'Move-in' },
+  { label: 'Legal', href: '/legal/', sub: 'SPA · MOT' },
+];
+
+// "Document filed on" line — pure flavour, refreshes monthly
+const filed = new Intl.DateTimeFormat('en-MY', { month: 'long', year: 'numeric' }).format(new Date());
+---
+<header class="bg-paper">
+  <!-- Top utility strip — gazette-style filing line -->
+  <div class="bg-navy text-paper">
+    <div class="max-w-[1240px] mx-auto px-5 h-9 flex items-center justify-between text-[10.5px] font-mono uppercase tracking-[0.16em]">
+      <span>
+        <span class="inline-block w-1.5 h-1.5 bg-clay rounded-full align-middle mr-2"></span>
+        Filed · {filed}
+      </span>
+      <span class="hidden md:inline opacity-70">No. of dossiers · growing</span>
+    </div>
+  </div>
+
+  <!-- Masthead — wordmark, generous whitespace, gazette feel -->
+  <div class="border-b border-rule-strong">
+    <div class="max-w-[1240px] mx-auto px-5 py-7 md:py-9 flex items-end justify-between gap-6">
+      <a href="/" class="flex flex-col" aria-label={`${SITE.name} home`}>
+        <span class="doc-no mb-2">Dossier · MY</span>
+        <span class="font-display text-[34px] md:text-[44px] leading-none tracking-tight" style="font-weight: 500;">
+          Rumah <span class="italic text-clay">Baru</span>
+        </span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-navy-mute mt-2">A buyer’s gazette · Malaysia</span>
+      </a>
+
+      <nav aria-label="Primary" class="hidden lg:block">
+        <ul class="flex items-end gap-6">
+          {nav.map((n) => (
+            <li>
+              <a
+                href={n.href}
+                class="block text-right group hover:text-clay transition"
+              >
+                <span class="block font-display text-[18px] leading-tight" style="font-weight: 500;">{n.label}</span>
+                <span class="block font-mono text-[10px] uppercase tracking-[0.14em] text-navy-mute mt-1">{n.sub}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <button id="navToggle" class="lg:hidden p-2 -mr-2 text-navy" aria-label="Open dossier menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobileNav" hidden class="lg:hidden border-b border-rule-strong bg-paper-deep">
+    <ul class="max-w-[1240px] mx-auto px-5 py-2 divide-y divide-rule">
+      {nav.map((n) => (
+        <li>
+          <a href={n.href} class="flex items-baseline justify-between py-4">
+            <span class="font-display text-[20px]" style="font-weight: 500;">{n.label}</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-navy-mute">{n.sub}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const t = document.getElementById('navToggle');
+  const m = document.getElementById('mobileNav');
+  if (t && m) {
+    t.addEventListener('click', () => {
+      const isOpen = !m.hasAttribute('hidden');
+      if (isOpen) m.setAttribute('hidden', '');
+      else m.removeAttribute('hidden');
+      t.setAttribute('aria-expanded', String(!isOpen));
+    });
+  }
+</script>

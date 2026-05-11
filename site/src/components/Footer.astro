@@ -1,0 +1,48 @@
+---
+import { SITE } from '../lib/site';
+const year = new Date().getFullYear();
+---
+<footer class="border-t-2 border-navy mt-24 bg-paper">
+  <div class="max-w-[1240px] mx-auto px-5 py-16 grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-5">
+      <p class="doc-no mb-3">Colophon</p>
+      <p class="font-display text-[26px] leading-tight mb-4" style="font-weight: 500;">
+        Rumah <span class="italic text-clay">Baru</span>
+      </p>
+      <p class="text-[14px] text-navy-soft leading-[1.7] max-w-[42ch]">
+        An independent dossier for first-time homeowners in Malaysia. Written and maintained by {SITE.author.name}, ex-property valuer (PJ).
+        No referral commissions, no insurance affiliates, no developer ad money.
+      </p>
+      <p class="font-mono text-[11px] uppercase tracking-[0.14em] text-navy-mute mt-6">
+        Editorial method · open · disclosed
+      </p>
+    </div>
+
+    <div class="md:col-span-3">
+      <p class="label mb-4">Sections</p>
+      <ul class="space-y-2 text-[14px] text-navy-soft">
+        <li><a href="/vp-handover/" class="hover:text-clay">VP &amp; Handover</a></li>
+        <li><a href="/loan/" class="hover:text-clay">Loan &amp; Financing</a></li>
+        <li><a href="/fit-out/" class="hover:text-clay">Pre-renovation Fit-out</a></li>
+        <li><a href="/pindah/" class="hover:text-clay">Moving In</a></li>
+        <li><a href="/legal/" class="hover:text-clay">Legal &amp; Documents</a></li>
+      </ul>
+    </div>
+
+    <div class="md:col-span-4">
+      <p class="label mb-4">Editorial</p>
+      <ul class="space-y-2 text-[14px] text-navy-soft">
+        <li><a href="/about/" class="hover:text-clay">About this dossier &amp; the editor</a></li>
+        <li><a href="/contact/" class="hover:text-clay">Send a correction or your VP story</a></li>
+        <li><a href="/rss.xml" class="hover:text-clay">RSS · subscribe by reader</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-rule">
+    <div class="max-w-[1240px] mx-auto px-5 py-5 flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono uppercase tracking-[0.14em] text-navy-mute">
+      <span>© {year} — {SITE.name}</span>
+      <span>Not legal or financial advice — verify with your conveyancer &amp; banker</span>
+    </div>
+  </div>
+</footer>

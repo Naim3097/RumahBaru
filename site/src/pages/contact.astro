@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+---
+<BaseLayout
+  title="Contact — Rumah Baru"
+  description="Send a correction, a question, or your own VP story. No PR pitches, no SEO outreach."
+>
+  <section class="max-w-[820px] mx-auto px-5 pt-16 pb-12">
+    <p class="doc-no mb-6">Contact · Editorial desk</p>
+    <h1 class="font-display text-[44px] md:text-[60px] leading-[1.05] text-navy" style="font-weight: 500;">
+      Get in touch
+    </h1>
+    <p class="mt-6 font-display italic text-[20px] md:text-[22px] text-navy-soft leading-[1.5] max-w-[52ch]">
+      Three good reasons to email. One bad one. The bad one is sales pitches — those don’t get a reply.
+    </p>
+    <span class="ornament mt-8"></span>
+  </section>
+
+  <section class="max-w-[820px] mx-auto px-5 pb-20 grid md:grid-cols-2 gap-8">
+    <div class="border-2 border-navy p-7 bg-paper-deep">
+      <p class="doc-no mb-3">01 · Corrections</p>
+      <p class="font-display text-[22px] mb-3 text-navy" style="font-weight: 500;">Found an error in a dossier?</p>
+      <p class="text-[14px] text-navy-soft leading-[1.7]">
+        Send the file URL, the line, and a document or screenshot supporting the correction. Fastest way to get a same-week revision.
+      </p>
+    </div>
+
+    <div class="border-2 border-navy p-7 bg-paper-deep">
+      <p class="doc-no mb-3">02 · Your VP story</p>
+      <p class="font-display text-[22px] mb-3 text-navy" style="font-weight: 500;">Walk-through gone wrong?</p>
+      <p class="text-[14px] text-navy-soft leading-[1.7]">
+        We anonymise and aggregate reader stories into the defect &amp; DLP files. Photos welcome — with EXIF stripped on our end before publication.
+      </p>
+    </div>
+
+    <div class="border-2 border-navy p-7 bg-paper-deep">
+      <p class="doc-no mb-3">03 · Paid help</p>
+      <p class="font-display text-[22px] mb-3 text-navy" style="font-weight: 500;">One-on-one buyer’s rep</p>
+      <p class="text-[14px] text-navy-soft leading-[1.7]">
+        Pre-signing reviews of SPA / loan offer / VP defect list. Flat-fee, scope agreed in writing. Reply within two working days.
+      </p>
+    </div>
+
+    <div class="border border-rule-strong p-7">
+      <p class="doc-no mb-3">04 · Don’t bother</p>
+      <p class="font-display text-[22px] mb-3 text-navy-mute" style="font-weight: 500;">PR / SEO outreach</p>
+      <p class="text-[14px] text-navy-mute leading-[1.7]">
+        Guest post requests, link insertions, "we love your content" emails — these go straight to the bin. Save us both the time.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-[820px] mx-auto px-5 pb-24">
+    <div class="border-t-2 border-navy pt-10">
+      <p class="label mb-4">Direct</p>
+      <p class="font-display text-[32px] md:text-[40px] text-navy" style="font-weight: 500;">
+        editor<span class="text-clay">@</span>rumahbaru.my
+      </p>
+      <p class="text-[14px] text-navy-soft mt-4 max-w-[55ch] leading-[1.7]">
+        Replies are written by {SITE.author.name} personally. Allow 2–3 working days. Outside Malaysian office hours, expect longer.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

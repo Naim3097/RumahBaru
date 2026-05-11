@@ -1,0 +1,167 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Crumbs from '../components/Crumbs.astro';
+import FaqList from '../components/FaqList.astro';
+import BinaDossierNote from '../components/BinaDossierNote.astro';
+import BinaSidebarMini from '../components/BinaSidebarMini.astro';
+import NextStepLink from '../components/NextStepLink.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { SITE } from '../lib/site';
+import {
+  articleSchema,
+  breadcrumbSchema,
+  faqSchema,
+  fitoutBusinessSchema,
+} from '../lib/schema';
+
+export interface Props {
+  data: {
+    title: string;
+    description: string;
+    locale: 'ms' | 'en';
+    category: 'vp-handover' | 'loan' | 'fit-out' | 'pindah' | 'legal' | 'renovate';
+    pillar: boolean;
+    publishedAt: Date;
+    updatedAt?: Date;
+    tags: string[];
+    faqs: Array<{ q: string; a: string }>;
+    includeFitoutNote: boolean;
+  };
+  slug: string;
+  alternates?: Array<{ locale: 'ms' | 'en'; href: string }>;
+}
+
+const { data, slug, alternates = [] } = Astro.props;
+const url = new URL(Astro.url.pathname, SITE.url).toString();
+
+const categoryLabel: Record<string, string> = {
+  'vp-handover': 'VP & Handover',
+  loan: 'Loan',
+  'fit-out': 'Fit-out',
+  pindah: 'Moving in',
+  legal: 'Legal',
+  renovate: 'Renovate',
+};
+
+const crumbs = [
+  { name: 'Dossier', href: '/' },
+  { name: categoryLabel[data.category], href: `/${data.category}/` },
+  { name: data.title },
+];
+
+const dateFmt = new Intl.DateTimeFormat(data.locale === 'en' ? 'en-MY' : 'ms-MY', {
+  day: 'numeric', month: 'long', year: 'numeric',
+}).format(data.publishedAt);
+
+const updatedFmt = data.updatedAt
+  ? new Intl.DateTimeFormat(data.locale === 'en' ? 'en-MY' : 'ms-MY', {
+      day: 'numeric', month: 'long', year: 'numeric',
+    }).format(data.updatedAt)
+  : null;
+
+// Variant index — stable per slug, so the BinaDossierNote anchor doesn't
+// change between builds for the same article.
+const variantIdx = slug.split('').reduce((s, c) => s + c.charCodeAt(0), 0);
+---
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  locale={data.locale}
+  alternates={alternates}
+>
+  <article class="max-w-[1240px] mx-auto px-5 pt-8 md:pt-12">
+    <Crumbs items={crumbs} />
+
+    <header class="mt-8 pb-10 border-b-2 border-navy">
+      <div class="flex flex-wrap items-center gap-3 mb-6">
+        <span class="tag tag-clay">{categoryLabel[data.category]}</span>
+        {data.pillar && <span class="tag tag-sage">Pillar dossier</span>}
+        <span class="doc-no">File · {data.publishedAt.getFullYear()}</span>
+      </div>
+      <h1 class="font-display text-[36px] sm:text-[48px] md:text-[60px] leading-[1.05] tracking-tight max-w-[24ch]" style="font-weight: 500;">
+        {data.title}
+      </h1>
+      <p class="mt-6 text-[18px] md:text-[20px] text-navy-soft leading-[1.55] max-w-[60ch] font-display italic" style="font-weight: 400;">
+        {data.description}
+      </p>
+
+      <dl class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-4 border-t border-rule pt-5 text-[12px] font-mono uppercase tracking-[0.14em]">
+        <div>
+          <dt class="text-navy-mute">Compiled by</dt>
+          <dd class="text-navy mt-1 normal-case tracking-normal">{SITE.author.name}</dd>
+        </div>
+        <div>
+          <dt class="text-navy-mute">Filed</dt>
+          <dd class="text-navy mt-1 normal-case tracking-normal">{dateFmt}</dd>
+        </div>
+        {updatedFmt ? (
+          <div>
+            <dt class="text-navy-mute">Last revised</dt>
+            <dd class="text-clay mt-1 normal-case tracking-normal">{updatedFmt}</dd>
+          </div>
+        ) : (
+          <div>
+            <dt class="text-navy-mute">Locale</dt>
+            <dd class="text-navy mt-1">{data.locale === 'ms' ? 'Bahasa Malaysia' : 'English'}</dd>
+          </div>
+        )}
+        <div>
+          <dt class="text-navy-mute">Section</dt>
+          <dd class="text-navy mt-1">{categoryLabel[data.category]}</dd>
+        </div>
+      </dl>
+    </header>
+
+    <div class="grid md:grid-cols-12 gap-12 py-12">
+      <div class="md:col-span-8">
+        <div class="dossier">
+          <slot />
+        </div>
+        {(data.category !== 'fit-out' && data.category !== 'renovate') && (
+          <NextStepLink fromCategory={data.category} locale={data.locale} />
+        )}
+        {data.includeFitoutNote && <BinaDossierNote variant={variantIdx} />}
+        <FaqList faqs={data.faqs} heading={data.locale === 'ms' ? 'Soalan lazim' : 'Frequently asked'} />
+      </div>
+
+      <aside class="md:col-span-4 md:pl-4">
+        <div class="md:sticky md:top-6 space-y-6">
+          <div class="border border-navy bg-paper-deep p-6">
+            <p class="label mb-3">Editorial caveat</p>
+            <p class="text-[14px] text-navy-soft leading-[1.7]">
+              Laws, bank policies and developer practices change. This dossier is a starting checklist — not legal or financial advice. Verify the specifics for your unit with your conveyancing lawyer and your panel banker before signing.
+            </p>
+          </div>
+          <a href={`/${data.category}/`} class="block border border-navy bg-navy text-paper p-6 hover:bg-clay hover:border-clay transition group">
+            <p class="font-mono text-[10px] uppercase tracking-[0.16em] opacity-70 mb-2">Section index →</p>
+            <p class="font-display text-[22px] leading-tight" style="font-weight: 500;">More in {categoryLabel[data.category]}</p>
+          </a>
+          {(data.category === 'fit-out' || data.category === 'renovate') && (
+            <BinaSidebarMini variant={variantIdx} />
+          )}
+          <div class="border border-rule-strong p-6">
+            <p class="label mb-3">About the author</p>
+            <p class="font-display text-[20px] mb-2 text-navy" style="font-weight: 500;">{SITE.author.name}</p>
+            <p class="text-[13px] text-navy-mute leading-snug">{SITE.author.role}</p>
+            <p class="text-[13px] text-navy-soft leading-[1.65] mt-3">{SITE.author.bio}</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </article>
+
+  <JsonLd data={articleSchema({
+    title: data.title,
+    description: data.description,
+    url,
+    publishedAt: data.publishedAt,
+    updatedAt: data.updatedAt,
+    locale: data.locale,
+  })} />
+  <JsonLd data={breadcrumbSchema(crumbs.map((c, i) => ({
+    name: c.name,
+    url: i === crumbs.length - 1 ? url : new URL(c.href ?? '/', SITE.url).toString(),
+  })))} />
+  {data.faqs.length > 0 && <JsonLd data={faqSchema(data.faqs)} />}
+  {data.includeFitoutNote && <JsonLd data={fitoutBusinessSchema()} />}
+</BaseLayout>

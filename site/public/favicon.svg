@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#0E2740"/>
+  <path d="M16 28 L32 16 L48 28 L48 50 L36 50 L36 38 L28 38 L28 50 L16 50 Z" fill="none" stroke="#C24E3A" stroke-width="3" stroke-linejoin="round"/>
+  <text x="32" y="60" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#F4EFE6">RB</text>
+</svg>

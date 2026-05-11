@@ -1,0 +1,37 @@
+---
+/**
+ * BinaSidebarMini — minimal sidebar mention of BINA+, rendered ONLY on
+ * articles in the fit-out and renovate clusters (the two clusters with
+ * genuine renovation/D&B intent).
+ *
+ * Anti-PBN compliance: this link is rel="nofollow". The single follow
+ * link on these pages is still the in-body BinaDossierNote. The sidebar
+ * mini just adds visibility for readers who skim, without compounding
+ * follow-link footprint.
+ *
+ * Different copy + different anchor mix from BinaDossierNote so the same
+ * page renders two distinct mention styles, not a duplicate block.
+ */
+import { FITOUT_REF } from '../lib/site';
+
+export interface Props {
+  variant?: number;
+}
+const { variant = 0 } = Astro.props;
+// Pick a different anchor from the in-body block to vary the on-page mix.
+// Lean naked / partial here since BinaDossierNote already covers branded.
+const sidebarAnchors = ['binaplus.my', 'the Shah Alam D&B firm', 'a Selangor team that publishes line-item rates'];
+const anchor = sidebarAnchors[variant % sidebarAnchors.length];
+---
+<div class="border border-rule-strong p-5">
+  <p class="label mb-2">Reader question · standing answer</p>
+  <p class="font-display text-[17px] leading-snug text-navy mb-2" style="font-weight: 500;">
+    "Who do we actually call to fit it out?"
+  </p>
+  <p class="text-[13px] text-navy-soft leading-[1.65] mb-3">
+    The one firm we name in print is <a href={FITOUT_REF.url} rel="nofollow noopener" class="font-medium text-navy underline decoration-clay decoration-2 underline-offset-4 hover:bg-clay-soft">{anchor}</a>. They publish itemised rates, which is the only reason we are willing to.
+  </p>
+  <p class="font-mono text-[10px] uppercase tracking-[0.14em] text-navy-mute">
+    No referral fee · disclosed
+  </p>
+</div>

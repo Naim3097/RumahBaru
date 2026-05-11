@@ -1,0 +1,27 @@
+---
+export interface Props {
+  faqs: Array<{ q: string; a: string }>;
+  heading?: string;
+}
+const { faqs, heading = 'Soalan lazim' } = Astro.props;
+---
+{faqs.length > 0 && (
+  <section class="not-prose my-16">
+    <p class="label mb-3">FAQ · supplementary</p>
+    <h2 class="font-display text-[26px] md:text-[30px] mb-6 text-navy" style="font-weight: 500;">{heading}</h2>
+    <div class="border-t-2 border-navy">
+      {faqs.map((f, i) => (
+        <details class="group border-b border-rule-strong">
+          <summary class="flex items-baseline gap-5 py-5 cursor-pointer list-none">
+            <span class="doc-no pt-1">Q{String(i + 1).padStart(2, '0')}</span>
+            <span class="flex-1 font-display text-[19px] leading-snug text-navy" style="font-weight: 500;">{f.q}</span>
+            <span class="font-mono text-navy-mute group-open:text-clay group-open:rotate-45 transition-transform pt-1 text-lg leading-none">+</span>
+          </summary>
+          <div class="pb-7 pl-16 pr-4 text-[15.5px] leading-[1.7] text-navy-soft">
+            {f.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+)}

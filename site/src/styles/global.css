@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+@theme {
+  /* HUB 3 — "Buyer's Dossier" / property-gazette aesthetic.
+     Deliberately distinct from Hub 1 (cream/forest editorial) and Hub 2
+     (graphite/amber industrial). Different palette, different fonts,
+     different semantic class names — to avoid template fingerprinting. */
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Spectral", "Georgia", "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Cool off-white paper, deep ink, sage-green primary accent, warm tan support.
+     NOTE: legacy token names (--color-clay, --color-sage) are kept to avoid
+     touching every template; values were re-mapped after a fingerprinting audit
+     against Hub 1 (which uses warm-cream + terracotta). */
+  --color-paper: #efeee9;
+  --color-paper-deep: #e5e4dd;
+  --color-paper-mute: #d6d5cc;
+  --color-navy: #16263b;
+  --color-navy-soft: #354455;
+  --color-navy-mute: #6a7682;
+  --color-clay: #4f6f59;       /* primary accent — deep sage-green (was terracotta) */
+  --color-clay-soft: #d8e0d6;
+  --color-sage: #a08758;       /* secondary accent — warm tan (was sage) */
+  --color-sage-soft: #ebe2cf;
+  --color-rule: #16263b14;     /* hairline rule */
+  --color-rule-strong: #16263b40;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-navy);
+  background: var(--color-paper);
+  font-size: 16px;
+  line-height: 1.6;
+  font-feature-settings: "calt", "kern", "ss01";
+}
+
+/* Display = serif. Color inherits so dark sections (navy hero) flip text
+   to paper without needing per-element overrides. */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: inherit;
+}
+
+/* Mono = numbers, dossier IDs, dates, file references */
+.font-mono, .num {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum", "zero";
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+/* "label" — Hub 3's eyebrow class. Deliberately NOT named "kicker"
+   (Hub 1) or "eyebrow" (Hub 2). */
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-navy-mute);
+}
+
+.doc-no {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-clay);
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--color-navy);
+  padding: 3px 9px;
+  border: 1px solid var(--color-navy);
+  border-radius: 999px;
+}
+
+.tag-clay {
+  background: var(--color-clay-soft);
+  color: var(--color-clay);
+  border-color: var(--color-clay);
+}
+
+.tag-sage {
+  background: var(--color-sage-soft);
+  color: var(--color-navy);
+  border-color: var(--color-sage);
+}
+
+::selection { background: var(--color-clay); color: var(--color-paper); }
+
+/* Decorative rule used at section ends, mimicking a property-gazette
+   ornamental break. */
+.ornament {
+  display: block;
+  width: 60px;
+  height: 8px;
+  border-top: 1px solid var(--color-navy);
+  border-bottom: 1px solid var(--color-navy);
+  margin: 24px 0;
+  position: relative;
+}
+.ornament::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-clay);
+}
+
+/* ── Article body ─ "dossier" voice ────────────────────────────── */
+.dossier {
+  max-width: 70ch;
+  font-size: 17px;
+  line-height: 1.72;
+  color: var(--color-navy-soft);
+}
+.dossier > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.92;
+  margin: 0.06em 0.12em -0.05em -0.02em;
+  color: var(--color-clay);
+}
+.dossier p { margin: 0 0 1.2em; }
+.dossier > p:first-of-type {
+  font-size: 1.06rem;
+  color: var(--color-navy);
+}
+.dossier h2 {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  margin-top: 2.6em;
+  margin-bottom: 0.5em;
+  color: var(--color-navy);
+  font-weight: 500;
+  position: relative;
+  padding-left: 1.4em;
+}
+.dossier h2::before {
+  content: counter(dossier-h2, decimal-leading-zero);
+  counter-increment: dossier-h2;
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  font-family: var(--font-mono);
+  font-size: 0.55em;
+  color: var(--color-clay);
+  letter-spacing: 0.1em;
+}
+.dossier { counter-reset: dossier-h2; }
+.dossier h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-top: 1.8em;
+  color: var(--color-navy);
+}
+.dossier a {
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-decoration-color: var(--color-clay);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+.dossier a:hover {
+  background: var(--color-clay-soft);
+}
+.dossier ul, .dossier ol { padding-left: 1.4em; margin: 0 0 1.4em; }
+.dossier ul > li, .dossier ol > li { margin: 0.35em 0; }
+.dossier ul > li::marker { color: var(--color-clay); }
+.dossier ol > li::marker { color: var(--color-clay); font-family: var(--font-mono); font-size: 0.9em; }
+.dossier blockquote {
+  border-left: 2px solid var(--color-clay);
+  padding: 0.3em 0 0.3em 1.4em;
+  margin: 1.8em 0;
+  font-family: var(--font-display);
+  font-size: 1.32rem;
+  line-height: 1.45;
+  color: var(--color-navy);
+  font-style: italic;
+}
+.dossier hr { border: 0; border-top: 1px solid var(--color-rule); margin: 2.4rem 0; }
+.dossier strong { color: var(--color-navy); font-weight: 600; }
+
+/* Tables — kept light & document-like, not industrial */
+.dossier table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  margin: 1.4em 0 2em;
+  font-family: var(--font-sans);
+}
+.dossier th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-navy);
+  border-bottom: 1.5px solid var(--color-navy);
+  padding: 9px 12px 8px;
+  background: var(--color-paper-deep);
+}
+.dossier td {
+  border-bottom: 1px solid var(--color-rule);
+  padding: 11px 12px;
+  color: var(--color-navy-soft);
+  vertical-align: top;
+}
+
+/* Checkbox list — used heavily in handover checklists */
+.dossier ul.check {
+  list-style: none;
+  padding-left: 0;
+}
+.dossier ul.check > li {
+  position: relative;
+  padding-left: 1.8em;
+  margin: 0.5em 0;
+}
+.dossier ul.check > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--color-navy);
+  border-radius: 2px;
+}

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="404 — File not in this dossier"
+  description="The file you requested is not in the gazette archive."
+  noindex
+>
+  <section class="max-w-[760px] mx-auto px-5 py-24 text-center">
+    <p class="doc-no mb-6">Error · 404 · File not found</p>
+    <h1 class="font-display text-[80px] md:text-[120px] leading-none text-clay" style="font-weight: 500;">404</h1>
+    <p class="font-display italic text-[22px] md:text-[26px] text-navy mt-6 max-w-[40ch] mx-auto">
+      The file you requested is not in the gazette archive — either it never existed, or it’s been re-filed under a new section.
+    </p>
+    <span class="ornament mt-10 mx-auto"></span>
+    <div class="mt-8 flex flex-wrap gap-3 justify-center">
+      <a href="/" class="border border-navy bg-navy text-paper px-6 py-3 font-mono text-[12px] uppercase tracking-[0.14em] hover:bg-clay hover:border-clay transition">Back to dossier index</a>
+      <a href="/vp-handover/" class="border border-navy text-navy px-6 py-3 font-mono text-[12px] uppercase tracking-[0.14em] hover:bg-paper-deep transition">Browse VP & Handover</a>
+    </div>
+  </section>
+</BaseLayout>

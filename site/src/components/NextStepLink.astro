@@ -1,0 +1,103 @@
+---
+/**
+ * NextStepLink — internal cross-cluster bridge.
+ *
+ * Renders at the end of articles in vp-handover, loan, legal, pindah.
+ * Points readers from "buyer mode" clusters into "renovator mode"
+ * clusters (fit-out and renovate). NO external link, NO BINA mention.
+ * Pure internal funnel routing inside Hub 3.
+ *
+ * Copy varies per source category to keep the cross-link editorial.
+ */
+
+export interface Props {
+  fromCategory: 'vp-handover' | 'loan' | 'fit-out' | 'pindah' | 'legal' | 'renovate';
+  locale: 'ms' | 'en';
+}
+
+const { fromCategory, locale } = Astro.props;
+
+// Source-category-specific copy. Short. Editorial. Bilingual.
+type Copy = { eyebrow: string; title: string; body: string; cta1: string; cta2: string };
+const COPY_MS: Record<string, Copy> = {
+  'vp-handover': {
+    eyebrow: 'Selepas VP',
+    title: 'Bila kunci dah di tangan, fail seterusnya — fit-out.',
+    body: 'Selepas joint inspection dan defect form difailkan, kebanyakan pembeli rumah pertama mula fikir kabinet, lampu, grille. Fail fit-out kami adalah panduan untuk fasa itu — tanpa kontraktor over-spec.',
+    cta1: 'Baca cluster fit-out',
+    cta2: 'Pelan renovasi penuh',
+  },
+  loan: {
+    eyebrow: 'Selepas loan disbursed',
+    title: 'Wang dah mula keluar. Bila masa nak mula renovate?',
+    body: 'Loan disbursement biasanya beberapa minggu sebelum atau selepas VP. Fail fit-out menerangkan urutan kerja yang patut anda mulakan — sebelum kontraktor pertama dipanggil masuk.',
+    cta1: 'Baca cluster fit-out',
+    cta2: 'Pilih pakej renovasi',
+  },
+  legal: {
+    eyebrow: 'Selepas paperwork settle',
+    title: 'MOT dah filed. Sekarang fail yang lebih praktikal — fit-out.',
+    body: 'Bila bahagian legal sudah selesai, perhatian beralih kepada bila dan bagaimana untuk mula renovate. Fail fit-out mengumpulkan semua keputusan praktikal yang akan anda buat dalam enam bulan akan datang.',
+    cta1: 'Baca cluster fit-out',
+    cta2: 'Bandingkan pakej renovasi',
+  },
+  pindah: {
+    eyebrow: 'Selepas pindah',
+    title: 'Anda dah di rumah baru. Sekarang masa renovate sebenar.',
+    body: 'Selepas furniture masuk dan utilities aktif, banyak pembeli sedar mereka mahu ubah tata letak atau dapur. Fail fit-out adalah panduan untuk merancang itu tanpa membazir RM 30,000 pertama.',
+    cta1: 'Baca cluster fit-out',
+    cta2: 'Lihat pelan renovasi',
+  },
+};
+const COPY_EN: Record<string, Copy> = {
+  'vp-handover': {
+    eyebrow: 'After VP',
+    title: 'Keys collected. The next file in the cabinet — fit-out.',
+    body: 'Once the joint inspection is done and your defect form is filed, most first-time owners start thinking about cabinets, lights, grilles. The fit-out cluster is the guide for that phase — without the contractor over-spec.',
+    cta1: 'Read the fit-out cluster',
+    cta2: 'Plan a full renovation',
+  },
+  loan: {
+    eyebrow: 'After disbursement',
+    title: 'Money is moving. When does the renovation start?',
+    body: 'Loan disbursement usually lands a few weeks either side of VP. The fit-out cluster explains the work sequence to settle before the first contractor walks in.',
+    cta1: 'Read the fit-out cluster',
+    cta2: 'Compare renovation packages',
+  },
+  legal: {
+    eyebrow: 'After paperwork',
+    title: 'MOT filed. Now the more practical files — fit-out.',
+    body: 'Once the legal stack is closed, attention turns to when and how to start renovating. The fit-out cluster collects every practical decision you will make over the next six months.',
+    cta1: 'Read the fit-out cluster',
+    cta2: 'Compare renovation packages',
+  },
+  pindah: {
+    eyebrow: 'After moving in',
+    title: 'You are in. Now the actual renovation.',
+    body: 'Once furniture is in and utilities are live, many owners realise they want to change the layout or the kitchen. The fit-out cluster is the planning guide that keeps the first RM 30,000 from disappearing.',
+    cta1: 'Read the fit-out cluster',
+    cta2: 'See renovation plans',
+  },
+};
+
+const c = (locale === 'ms' ? COPY_MS : COPY_EN)[fromCategory] ?? COPY_MS.pindah;
+---
+<aside class="not-prose my-12 border border-rule-strong bg-paper-deep">
+  <div class="p-6 md:p-8">
+    <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-clay mb-3">{c.eyebrow}</p>
+    <p class="font-display text-[22px] md:text-[24px] leading-snug text-navy mb-3" style="font-weight: 500;">
+      {c.title}
+    </p>
+    <p class="text-[14px] text-navy-soft leading-[1.7] max-w-[58ch] mb-5">
+      {c.body}
+    </p>
+    <div class="flex flex-wrap gap-x-6 gap-y-2 pt-4 border-t border-rule">
+      <a href="/fit-out/" class="font-mono text-[11px] uppercase tracking-[0.14em] text-navy hover:text-clay">
+        → {c.cta1}
+      </a>
+      <a href="/renovate/" class="font-mono text-[11px] uppercase tracking-[0.14em] text-navy hover:text-clay">
+        → {c.cta2}
+      </a>
+    </div>
+  </div>
+</aside>

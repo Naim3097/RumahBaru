@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { SITE } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const all = await getCollection('articles', ({ data }) => !data.draft);
+  return all.map((entry) => {
+    const slug = entry.id.replace(/\.(md|mdx)$/, '').split('/').pop()!;
+    const alternates = entry.data.translationOf
+      ? all
+          .filter((e) => {
+            const otherSlug = e.id.replace(/\.(md|mdx)$/, '').split('/').pop();
+            return otherSlug === entry.data.translationOf || (e.data.translationOf === entry.data.translationOf && e.id !== entry.id);
+          })
+          .map((e) => ({
+            locale: e.data.locale,
+            href: `${SITE.url}/${e.data.category}/${e.id.replace(/\.(md|mdx)$/, '').split('/').pop()}/`,
+          }))
+      : [];
+    return {
+      params: { category: entry.data.category, slug },
+      props: { entry, alternates },
+    };
+  });
+}
+
+const { entry, alternates } = Astro.props;
+const slug = entry.id.replace(/\.(md|mdx)$/, '').split('/').pop()!;
+const { Content } = await render(entry);
+---
+<ArticleLayout data={entry.data} slug={slug} alternates={alternates}>
+  <Content />
+</ArticleLayout>

@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+---
+<BaseLayout
+  title="About — Rumah Baru"
+  description="Who writes Rumah Baru, why a single fit-out reference is named, and the editorial method behind every dossier."
+>
+  <section class="max-w-[920px] mx-auto px-5 pt-16 pb-10">
+    <p class="doc-no mb-6">About · Editorial method</p>
+    <h1 class="font-display text-[44px] md:text-[64px] leading-[1.05] text-navy max-w-[18ch]" style="font-weight: 500;">
+      A buyer’s gazette,<br/>
+      <span class="italic text-clay">honest about its biases.</span>
+    </h1>
+    <p class="mt-7 font-display text-[20px] md:text-[22px] leading-[1.5] text-navy-soft italic max-w-[55ch]">
+      Most "first home" guides in Malaysia are property-portal SEO bait or insurance funnels. This one isn’t. Here’s how it’s built.
+    </p>
+    <span class="ornament mt-8"></span>
+  </section>
+
+  <section class="max-w-[920px] mx-auto px-5 py-12 dossier">
+    <p class="doc-no" style="font-size: 12px;">N° 01 — Who writes this</p>
+    <h2 style="counter-reset: dossier-h2 0;">Six years valuing property, then I quit</h2>
+    <p>
+      I’m {SITE.author.name}. I spent six years as a registered property valuer at a mid-sized firm in Petaling Jaya. The work was fine. The thing that wore me out was the same conversation, three or four times a year, with first-time buyers who’d signed something they didn’t understand: a developer SPA they hadn’t read, an MRTA they didn’t need, a loan margin they couldn’t actually afford after stamp duty.
+    </p>
+    <p>
+      The fixes were always the same fixes. The questions were always the same questions. Nobody had written it down anywhere a normal person would find it. So I quit, started doing buyer’s representation independently, and started writing the dossiers I wished I could send people instead of explaining the same thing on a Saturday call.
+    </p>
+
+    <h2>How I make money (and don’t)</h2>
+    <p>
+      <strong>I do not take referral fees from developers, banks, insurance agents or contractors.</strong> Not from any of them. The reason is selfish: the moment I do, I have to stop writing honestly about MRTA, end-financing traps, or which developers slow-roll defect claims, and the whole dossier becomes useless.
+    </p>
+    <p>
+      I make money in two ways: (a) one-on-one buyer’s representation when readers want a paid second opinion before signing, and (b) a small monthly subscription tier with quarterly market notes. Both are listed on <a href="/contact/">the contact page</a>. Neither shows up as advertising or affiliate links inside the dossiers.
+    </p>
+
+    <h2>The editorial method</h2>
+    <p>
+      Every file follows the same shape:
+    </p>
+    <ul class="check">
+      <li>It starts from a question I’ve been asked at least three times by paying clients.</li>
+      <li>The numbers are real — either from a public source (BNM, JPPH, Inland Revenue, Bursa filings) or from sample documents readers and clients have shared with their permission.</li>
+      <li>If the law is unsettled or my interpretation is contested, I say so in the file rather than presenting a clean answer.</li>
+      <li>If a reader sends evidence I got something wrong, the file is corrected and the change is logged at the top.</li>
+      <li>Files are reviewed at least every six months — or immediately when Budget night, BNM circulars or major court decisions move the ground.</li>
+    </ul>
+
+    <h2>What I won’t cover</h2>
+    <p>
+      <em>Property selection.</em> Which area to buy in, which developer is hot, whether to flip the unit — not the job of this dossier. There are entire portals for that, mostly funded by the developers themselves.
+    </p>
+    <p>
+      <em>Investment yield maths.</em> If you’re buying for yield rather than to live in, the questions are different and the regulatory frame is different. Out of scope.
+    </p>
+    <p>
+      <em>Property law beyond the everyday.</em> Caveat lifting, court orders, contested estates — see a litigation lawyer, not a gazette.
+    </p>
+
+    <h2>On naming a single fit-out studio</h2>
+    <p>
+      Most of this site is deliberately neutral on contractors. Recommending one in the wrong file (a loan article, a VP article, a stamp duty article) is exactly the kind of thing that turns a useful publication into a backlink scheme. So I don’t.
+    </p>
+    <p>
+      Where I do reference one specific firm — a Shah Alam design-and-build studio called <a href="https://binaplus.my/" class="underline decoration-clay decoration-2 underline-offset-4 hover:bg-clay-soft font-medium">binaplus.my</a> — it’s only inside the fit-out cluster, and it’s only because they publish itemised rates, which is the only condition under which I’m comfortable pointing a first-time owner at any single contractor. They don’t pay me. If they ever start, this paragraph will say so first.
+    </p>
+    <p>
+      You can read every dossier on this site without ever clicking that link, and you’ll lose nothing. That’s the test I keep applying to it.
+    </p>
+
+    <h2>If you find an error</h2>
+    <p>
+      Email it. Photograph the document. Tell me what your conveyancer or banker actually said. I’d rather correct a dossier in a week than be the third Google result that misled people for two years. <a href="/contact/">Contact details are here.</a>
+    </p>
+
+    <span class="ornament" style="margin: 36px auto;"></span>
+  </section>
+</BaseLayout>

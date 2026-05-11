@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { SITE } from '../lib/site';
+
+const all = await getCollection('articles', ({ data }) => !data.draft);
+const sorted = all.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const slugOf = (a: typeof sorted[number]) => a.id.replace(/\.(md|mdx)$/, '').split('/').pop();
+const hrefOf = (a: typeof sorted[number]) => `/${a.data.category}/${slugOf(a)}/`;
+
+// Phase timeline — the editorial spine of this gazette.
+// Each phase pulls its own articles. Day-anchored, not category-anchored.
+const phases = [
+  {
+    n: '00',
+    day: 'Day 0',
+    title: 'The handover desk',
+    note: 'Vacant Possession day. CCC, joint inspection, defect form. Whatever you flag here is whatever the developer fixes for free for the next two years.',
+    cats: ['vp-handover'],
+  },
+  {
+    n: '01',
+    day: 'Day 1 → 14',
+    title: 'Title, loan & paperwork',
+    note: 'Conveyancer chasing MOT, stamp duty filing, end-financing disbursement, retention sum holding. The two weeks where money moves quietly without you watching.',
+    cats: ['loan', 'legal'],
+  },
+  {
+    n: '02',
+    day: 'Day 7 → 30',
+    title: 'Moving in',
+    note: 'JMB induction, lift booking, address change across thirty agencies. Strata buyers — the move-in form deserves a Saturday of attention, not a casual Friday email.',
+    cats: ['pindah'],
+  },
+  {
+    n: '03',
+    day: 'Day 14 → 90',
+    title: 'Utilities & shell setup',
+    note: 'TNB, Air Selangor, IWK, fibre. The boring base layer that has to be solid before any contractor walks in.',
+    cats: ['fit-out'] as string[],
+    filter: (s: string) => s.includes('utilities'),
+  },
+  {
+    n: '04',
+    day: 'Day 60 → 180',
+    title: 'Renovation, finally',
+    note: 'Now — and only now — does the contractor conversation start. Budget allocation, ID-vs-contractor decision, the math that decides whether the kitchen redo waits a year.',
+    cats: ['fit-out'] as string[],
+    filter: (s: string) => !s.includes('utilities'),
+  },
+  {
+    n: '05',
+    day: 'Day 90 → 365',
+    title: 'Selecting a contractor',
+    note: 'When it is finally time to brief and hire. How to read a quote, what to compare, when to pick a design-and-build team versus separate ID and contractor.',
+    cats: ['renovate'] as string[],
+  },
+];
+
+const articlesForPhase = (p: typeof phases[number]) => {
+  const inCat = sorted.filter((a) => p.cats.includes(a.data.category));
+  return p.filter ? inCat.filter((a) => p.filter!(slugOf(a) ?? '')) : inCat;
+};
+
+const dateFmt = (d: Date) => new Intl.DateTimeFormat('en-MY', {
+  day: '2-digit', month: 'short', year: 'numeric',
+}).format(d);
+
+const totalFiles = sorted.length;
+---
+<BaseLayout
+  title="Rumah Baru — Panduan handover, loan & fit-out untuk pembeli rumah Malaysia"
+  description="An independent first-time-homeowner dossier for Malaysia. VP, defect liability, loan & MOT, fit-out planning, move-in. No referral fees, no developer money."
+>
+  {/* DOCUMENT COVER — typed manila-folder header. No big italic-hero. */}
+  <section class="border-b border-rule-strong">
+    <div class="max-w-[1080px] mx-auto px-5 pt-12 pb-14 md:pt-16 md:pb-20">
+      <div class="border-2 border-navy bg-paper-deep">
+        <div class="bg-navy text-paper px-6 py-3 flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-[0.18em]">
+          <span>File · NEW-HOMEOWNER · MY · {new Date().getFullYear()}</span>
+          <span class="text-clay-soft">Classification — public record</span>
+        </div>
+        <div class="px-6 md:px-10 py-10 md:py-14">
+          <div class="grid md:grid-cols-12 gap-x-10 gap-y-6">
+            <dl class="md:col-span-4 font-mono text-[11px] uppercase tracking-[0.14em] space-y-3 text-navy-soft">
+              <div><dt class="text-navy-mute">Compiled by</dt><dd class="text-navy normal-case tracking-normal text-[14px] mt-0.5">{SITE.author.name} — {SITE.author.role}</dd></div>
+              <div><dt class="text-navy-mute">Domicile</dt><dd class="text-navy normal-case tracking-normal text-[14px] mt-0.5">Klang Valley · Malaysia</dd></div>
+              <div><dt class="text-navy-mute">First filed</dt><dd class="text-navy normal-case tracking-normal text-[14px] mt-0.5">02 April 2026</dd></div>
+              <div><dt class="text-navy-mute">Files in record</dt><dd class="text-navy normal-case tracking-normal text-[14px] mt-0.5">{totalFiles}</dd></div>
+            </dl>
+            <div class="md:col-span-8">
+              <p class="font-display text-[34px] md:text-[44px] leading-[1.1] text-navy" style="font-weight: 500;">
+                Notes for the first ninety days after collecting your keys.
+              </p>
+              <p class="mt-6 text-[15px] md:text-[16px] leading-[1.7] text-navy-soft max-w-[58ch]">
+                Written for Malaysians taking Vacant Possession of their first home — the period when most buyers lose RM 8,000 to RM 30,000 because nobody told them which papers to read, which boxes to tick, and which calls to make in which week.
+              </p>
+              <p class="mt-4 text-[15px] leading-[1.7] text-navy-soft max-w-[58ch]">
+                We don't sell anything. No referral fees. No developer money. The format is plain — a stack of files, indexed by which day of your ninety you should read them.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-paper border-t-2 border-navy px-6 md:px-10 py-4 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.14em] text-navy-soft">
+          <span>Index follows ↓</span>
+          <span class="text-navy-mute">— Updated when the law moves —</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* PHASE TIMELINE — full-width horizontal bands stacked vertically.
+      Replaces Hub-1's featured/secondary article split AND its 3-section card grid. */}
+  <section class="bg-paper">
+    <div class="max-w-[1080px] mx-auto px-5 pt-12 pb-2">
+      <p class="label mb-2">The ninety-day spine</p>
+      <p class="font-mono text-[11px] uppercase tracking-[0.14em] text-navy-mute">Read top to bottom · Each band lists the files filed under it</p>
+    </div>
+
+    <ol>
+      {phases.map((p, idx) => {
+        const items = articlesForPhase(p);
+        const banded = idx % 2 === 1;
+        return (
+          <li class={banded ? 'bg-paper-deep border-y border-rule-strong' : 'border-y border-rule-strong'}>
+            <div class="max-w-[1080px] mx-auto px-5 py-10 md:py-14 grid md:grid-cols-12 gap-x-10 gap-y-6 items-start">
+              <div class="md:col-span-3">
+                <div class="flex items-baseline gap-3">
+                  <span class="font-mono text-[42px] leading-none text-clay" style="font-variant-numeric: tabular-nums;">{p.n}</span>
+                  <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-navy-mute">{p.day}</span>
+                </div>
+                <p class="font-display text-[26px] md:text-[28px] leading-tight text-navy mt-3" style="font-weight: 500;">{p.title}</p>
+              </div>
+              <div class="md:col-span-4 text-[14px] text-navy-soft leading-[1.7]">
+                {p.note}
+              </div>
+              <ul class="md:col-span-5 space-y-3">
+                {items.map((a) => (
+                  <li class="border-b border-rule pb-3 last:border-b-0">
+                    <a href={hrefOf(a)} class="group flex items-baseline gap-3">
+                      <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-navy-mute shrink-0 w-[72px]">{a.data.category}</span>
+                      <span class="font-display text-[16px] md:text-[17px] leading-snug text-navy group-hover:text-clay transition" style="font-weight: 500;">{a.data.title}</span>
+                    </a>
+                  </li>
+                ))}
+                {items.length === 0 && (
+                  <li class="font-mono text-[11px] uppercase tracking-[0.14em] text-navy-mute">— No files yet under this phase —</li>
+                )}
+              </ul>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  </section>
+
+  {/* COMPLETE INDEX — flat tabular register, not an ordered-list of cards.
+      Replaces Hub-1's archive ordered list pattern with a true <table>. */}
+  <section class="bg-paper">
+    <div class="max-w-[1080px] mx-auto px-5 py-16 md:py-20">
+      <div class="flex items-baseline justify-between flex-wrap gap-3 mb-8">
+        <p class="label">Register · all files in order of filing</p>
+        <p class="font-mono text-[11px] uppercase tracking-[0.14em] text-navy-mute">{totalFiles} entries</p>
+      </div>
+      <table class="w-full text-left border-y-2 border-navy">
+        <thead class="font-mono text-[10px] uppercase tracking-[0.14em] text-navy-mute">
+          <tr class="border-b border-rule-strong">
+            <th class="py-3 pr-3 w-[44px]">№</th>
+            <th class="py-3 pr-3 w-[110px] hidden md:table-cell">Filed</th>
+            <th class="py-3 pr-3 w-[120px]">Section</th>
+            <th class="py-3">File title</th>
+            <th class="py-3 pr-3 w-[60px] text-right hidden md:table-cell">Loc.</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sorted.map((a, i) => (
+            <tr class="border-b border-rule">
+              <td class="py-3 pr-3 font-mono text-[11px] text-navy-mute align-baseline" style="font-variant-numeric: tabular-nums;">{String(i + 1).padStart(2, '0')}</td>
+              <td class="py-3 pr-3 font-mono text-[11px] text-navy-soft align-baseline hidden md:table-cell">{dateFmt(a.data.publishedAt)}</td>
+              <td class="py-3 pr-3 align-baseline"><span class="label">{a.data.category}</span></td>
+              <td class="py-3 align-baseline"><a href={hrefOf(a)} class="font-display text-[16px] md:text-[17px] text-navy hover:text-clay transition leading-snug" style="font-weight: 500;">{a.data.title}</a></td>
+              <td class="py-3 pr-3 font-mono text-[10px] uppercase tracking-[0.14em] text-navy-mute text-right align-baseline hidden md:table-cell">{a.data.locale}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  {/* ENDNOTE — small editorial sign-off, no big italic pull-quote.
+      Single contextual BINA mention integrated as a paragraph, not a P.S. block. */}
+  <section class="border-t-2 border-navy bg-paper-deep">
+    <div class="max-w-[1080px] mx-auto px-5 py-14 md:py-16 grid md:grid-cols-12 gap-x-10 gap-y-6">
+      <div class="md:col-span-3">
+        <p class="label">Endnote</p>
+        <p class="font-mono text-[11px] uppercase tracking-[0.14em] text-navy-mute mt-2">Filed by editor</p>
+      </div>
+      <div class="md:col-span-9 max-w-[60ch] text-[15px] text-navy-soft leading-[1.75] space-y-4">
+        <p>
+          Roughly one in three readers writes back asking the same question once they've worked through the loan and VP files: <em>"who do we actually call to fit it out?"</em> The honest answer is that we don't keep a directory, because directories invite kickbacks, and kickbacks corrupt the editorial.
+        </p>
+        <p>
+          The single exception we're willing to name in print is <a href="https://binaplus.my/" class="font-medium text-navy underline decoration-clay decoration-2 underline-offset-4 hover:bg-clay-soft">the Shah Alam D&amp;B firm we point first-time owners to</a> — for one reason: they publish itemised line-item rates, which means readers can audit a quote against the published number without having to ring around for comparisons. Our reasoning sits in fuller form on the <a href="/about/" class="underline decoration-rule-strong decoration-1 underline-offset-4 hover:decoration-clay">about page</a>.
+        </p>
+        <p class="font-mono text-[11px] uppercase tracking-[0.14em] text-navy-mute pt-3">
+          — {SITE.author.name}, editor
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
