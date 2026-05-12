@@ -1,6 +1,9 @@
 ---
 title: "Senarai semak VP rumah baru — apa yang kena tuntut waktu DLP"
 description: "Walk-through Vacant Possession untuk pembeli kali pertama di Malaysia. Apa yang ada dalam DLP, apa kena tolak, apa boleh tuntut sampai bulan ke-24."
+coverUrl: "photo-1600585154340-be6161a56a0c"
+coverAlt: "Plate — VP handover keys"
+coverCredit: "Unsplash"
 locale: ms
 category: vp-handover
 pillar: true

@@ -1,6 +1,9 @@
 ---
 title: "Sambungan TNB, Air Selangor & IWK — proses akaun baru untuk rumah baru"
 description: "Walk-through aplikasi akaun baru TNB, Air Selangor / Syabas, dan IWK selepas VP. Dokumen yang diperlukan, masa proses, dan deposit yang kena bayar."
+coverUrl: "photo-1600573472550-8090b5e0745e"
+coverAlt: "Utility riser — condo unit baru"
+coverCredit: "Unsplash"
 locale: ms
 category: fit-out
 pillar: false

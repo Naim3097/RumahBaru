@@ -1,6 +1,9 @@
 ---
 title: "MOT vs DOA — when you get title and when you don't"
 description: "Memorandum of Transfer vs Deed of Assignment in Malaysia. When MOT happens, why some condos take 5+ years, and what holds your title."
+coverUrl: "photo-1600585154340-be6161a56a0c"
+coverAlt: "Plate — strata title file"
+coverCredit: "Unsplash"
 locale: en
 category: legal
 pillar: false

@@ -100,6 +100,29 @@ const totalFiles = sorted.length;
               </p>
             </div>
           </div>
+
+          {/* Single statement visual — the only photograph on the homepage.
+              Treated as evidence plate, not magazine hero. Letterboxed, framed,
+              captioned in mono — sympathetic to the dossier aesthetic. */}
+          <figure class="mt-10 md:mt-12 border-2 border-navy p-1.5 bg-paper">
+            <div class="aspect-[16/7] overflow-hidden bg-paper-deep">
+              <picture>
+                <source media="(max-width: 640px)" srcset="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=72" />
+                <img
+                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80"
+                  alt="Vacant possession — empty living room of a newly-handed-over Malaysian home, keys on the floor"
+                  class="w-full h-full object-cover"
+                  style="filter: saturate(0.82) contrast(0.95) sepia(0.05);"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+            <figcaption class="mt-2 px-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-mute flex flex-wrap justify-between gap-x-4 gap-y-1">
+              <span>Plate 01 — Day 0. Keys collected, room still empty. The ninety days begin here.</span>
+              <span>Photo · Unsplash</span>
+            </figcaption>
+          </figure>
         </div>
         <div class="bg-paper border-t-2 border-navy px-6 md:px-10 py-4 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.14em] text-navy-soft">
           <span>Index follows ↓</span>
@@ -166,6 +189,7 @@ const totalFiles = sorted.length;
         <thead class="font-mono text-[10px] uppercase tracking-[0.14em] text-navy-mute">
           <tr class="border-b border-rule-strong">
             <th class="py-3 pr-3 w-[44px]">№</th>
+            <th class="py-3 pr-3 w-[52px] hidden sm:table-cell">Plate</th>
             <th class="py-3 pr-3 w-[110px] hidden md:table-cell">Filed</th>
             <th class="py-3 pr-3 w-[120px]">Section</th>
             <th class="py-3">File title</th>
@@ -173,15 +197,27 @@ const totalFiles = sorted.length;
           </tr>
         </thead>
         <tbody>
-          {sorted.map((a, i) => (
+          {sorted.map((a, i) => {
+            const thumb = a.data.coverUrl
+              ? (a.data.coverUrl.startsWith('http') ? a.data.coverUrl : `https://images.unsplash.com/${a.data.coverUrl}?auto=format&fit=crop&w=120&q=70`)
+              : null;
+            return (
             <tr class="border-b border-rule">
-              <td class="py-3 pr-3 font-mono text-[11px] text-navy-mute align-baseline" style="font-variant-numeric: tabular-nums;">{String(i + 1).padStart(2, '0')}</td>
-              <td class="py-3 pr-3 font-mono text-[11px] text-navy-soft align-baseline hidden md:table-cell">{dateFmt(a.data.publishedAt)}</td>
-              <td class="py-3 pr-3 align-baseline"><span class="label">{a.data.category}</span></td>
-              <td class="py-3 align-baseline"><a href={hrefOf(a)} class="font-display text-[16px] md:text-[17px] text-navy hover:text-clay transition leading-snug" style="font-weight: 500;">{a.data.title}</a></td>
-              <td class="py-3 pr-3 font-mono text-[10px] uppercase tracking-[0.14em] text-navy-mute text-right align-baseline hidden md:table-cell">{a.data.locale}</td>
+              <td class="py-3 pr-3 font-mono text-[11px] text-navy-mute align-middle" style="font-variant-numeric: tabular-nums;">{String(i + 1).padStart(2, '0')}</td>
+              <td class="py-3 pr-3 align-middle hidden sm:table-cell">
+                {thumb ? (
+                  <div class="w-9 h-9 border border-navy p-[2px] bg-paper-deep">
+                    <img src={thumb} alt="" loading="lazy" decoding="async" class="w-full h-full object-cover" style="filter: saturate(0.85) contrast(0.95);" />
+                  </div>
+                ) : <div class="w-9 h-9 border border-rule bg-paper-deep"></div>}
+              </td>
+              <td class="py-3 pr-3 font-mono text-[11px] text-navy-soft align-middle hidden md:table-cell">{dateFmt(a.data.publishedAt)}</td>
+              <td class="py-3 pr-3 align-middle"><span class="label">{a.data.category}</span></td>
+              <td class="py-3 align-middle"><a href={hrefOf(a)} class="font-display text-[16px] md:text-[17px] text-navy hover:text-clay transition leading-snug" style="font-weight: 500;">{a.data.title}</a></td>
+              <td class="py-3 pr-3 font-mono text-[10px] uppercase tracking-[0.14em] text-navy-mute text-right align-middle hidden md:table-cell">{a.data.locale}</td>
             </tr>
-          ))}
+            );
+          })}
         </tbody>
       </table>
     </div>

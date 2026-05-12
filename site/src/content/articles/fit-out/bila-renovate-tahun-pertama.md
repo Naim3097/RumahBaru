@@ -1,6 +1,9 @@
 ---
 title: "Bila renovate rumah baru: bulan pertama vs lepas setahun"
 description: "Dilema klasik pembeli rumah pertama — renovate sekarang atau tunggu setahun? Kami bedah math, risiko, dan kos sebenar setiap pilihan."
+coverUrl: "photo-1600585154340-be6161a56a0c"
+coverAlt: "Field log — fit-out tahun pertama"
+coverCredit: "Unsplash"
 locale: ms
 category: fit-out
 pillar: false

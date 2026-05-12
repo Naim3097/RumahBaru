@@ -1,6 +1,9 @@
 ---
 title: "CCC vs CCM vs Occupation Permit — what each one actually means"
 description: "Plain-English explainer on Certificate of Completion and Compliance, OC, and CCM in Malaysia. What to verify before VP, and what each document does NOT prove."
+coverUrl: "photo-1600607687939-ce8a6c25118c"
+coverAlt: "Plate — CCC site folder"
+coverCredit: "Unsplash"
 locale: en
 category: vp-handover
 pillar: false

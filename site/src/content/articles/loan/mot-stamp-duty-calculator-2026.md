@@ -1,6 +1,9 @@
 ---
 title: "MOT, stamp duty & legal fees 2026 — what you'll actually pay in Malaysia"
 description: "Real numbers for MOT, stamp duty on SPA and loan, and legal fees for a Malaysian property purchase in 2026. Sample calculations across price bands."
+coverUrl: "photo-1600573472550-8090b5e0745e"
+coverAlt: "Plate — stamping office docket"
+coverCredit: "Unsplash"
 locale: en
 category: loan
 pillar: true

@@ -1,6 +1,9 @@
 ---
 title: "Sub-sale vs new launch: siapa renovate dulu, siapa kemudian"
 description: "Pembeli sub-sale dan pembeli new launch hadapi keputusan renovasi yang sangat berbeza. Panduan untuk fahami sequencing yang sesuai untuk situasi anda."
+coverUrl: "photo-1600607687939-ce8a6c25118c"
+coverAlt: "Subsale unit — fasad inspeksi"
+coverCredit: "Unsplash"
 locale: ms
 category: fit-out
 pillar: false

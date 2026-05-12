@@ -1,6 +1,9 @@
 ---
 title: "Kontraktor vs Interior Designer — bila first-home owner perlu mana satu?"
 description: "Pohon keputusan untuk pembeli kali pertama di Malaysia: bila kerja anda perlu kontraktor renovation, bila perlu Interior Designer, dan bila boleh handyman cukup."
+coverUrl: "photo-1600566753190-17f0baa2a6c3"
+coverAlt: "Site visit — contractor handover"
+coverCredit: "Unsplash"
 locale: ms
 category: fit-out
 pillar: false

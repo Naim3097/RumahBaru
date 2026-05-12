@@ -1,6 +1,9 @@
 ---
 title: "Margin of finance 90% vs 80% — bila bank tolak 90% loan"
 description: "Panduan praktikal margin financing housing loan di Malaysia. Bila anda dapat 90%, bila kena settle dengan 80%, dan apa kos sebenar perbezaannya."
+coverUrl: "photo-1600607687939-ce8a6c25118c"
+coverAlt: "Plate — margin financing brief"
+coverCredit: "Unsplash"
 locale: ms
 category: loan
 pillar: false

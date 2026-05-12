@@ -1,6 +1,9 @@
 ---
 title: "Pindah masuk kondo — borang JMB, booking lift, deposit & denda"
 description: "Protokol JMB / management untuk hari pindah masuk strata di Malaysia. Borang yang perlu, deposit lift, dan denda yang biasa kena untuk pelanggaran by-laws."
+coverUrl: "photo-1600573472550-8090b5e0745e"
+coverAlt: "Field log — condo move-in"
+coverCredit: "Unsplash"
 locale: ms
 category: pindah
 pillar: false

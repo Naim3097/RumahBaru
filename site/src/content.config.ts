@@ -21,6 +21,10 @@ const articles = defineCollection({
     includeFitoutNote: z.boolean().default(false),
     translationOf: z.string().optional(),
     draft: z.boolean().default(false),
+    // Optional dossier cover stamp (Unsplash photo ID or full URL)
+    coverUrl: z.string().optional(),
+    coverAlt: z.string().optional(),
+    coverCredit: z.string().optional(),
   }),
 });
 

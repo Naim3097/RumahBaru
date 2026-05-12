@@ -1,6 +1,9 @@
 ---
 title: "Address change checklist Malaysia — JPN, banks, EPF & 25 other places"
 description: "Comprehensive address change list for first-time owners in Malaysia. Statutory updates (JPN, JPJ, EPF), bank accounts, and the order to do them."
+coverUrl: "photo-1600585154340-be6161a56a0c"
+coverAlt: "Plate — moving day checklist"
+coverCredit: "Unsplash"
 locale: en
 category: pindah
 pillar: true

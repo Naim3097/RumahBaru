@@ -1,6 +1,9 @@
 ---
 title: "Kos renovate rumah baru vs rumah lama: perbezaan sebenar"
 description: "Bandingkan kos sebenar antara renovate unit baru dan unit lama 5 hingga 15 tahun. Kategori kerja yang berbeza, risiko tersembunyi, dan strategi bajet."
+coverUrl: "photo-1600210492486-724fe5c67fb0"
+coverAlt: "Plate — dapur renovasi rumah baru"
+coverCredit: "Unsplash"
 locale: ms
 category: renovate
 pillar: false
