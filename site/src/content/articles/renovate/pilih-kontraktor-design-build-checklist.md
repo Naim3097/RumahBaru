@@ -2,7 +2,7 @@
 title: "Pilih kontraktor design & build: checklist pemilik rumah baru"
 description: "Apa yang perlu disemak sebelum tandatangan kontrak design & build. Lima dokumen, tujuh soalan, dan dua red flag yang menyelamatkan ribu-ribu ringgit."
 coverUrl: "photo-1600566753190-17f0baa2a6c3"
-coverAlt: "Site walk — design-and-build"
+coverAlt: "Ilustrasi — D&B renovation project, foto stok"
 coverCredit: "Unsplash"
 locale: ms
 category: renovate

@@ -2,7 +2,7 @@
 title: "End-financing trap — bumi-allocated units delay your disbursement"
 description: "Buying a bumi-allocated unit as non-bumi? End-financing disbursement can stall for 3-9 months waiting for state consent. What to ask before signing."
 coverUrl: "photo-1600566753190-17f0baa2a6c3"
-coverAlt: "Field record — end-financing site"
+coverAlt: "Ilustrasi — perancangan pinjaman rumah"
 coverCredit: "Unsplash"
 locale: en
 category: loan

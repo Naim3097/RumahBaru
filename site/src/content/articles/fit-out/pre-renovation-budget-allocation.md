@@ -2,7 +2,7 @@
 title: "Pre-renovation budget — what to do in year one, what to skip"
 description: "First-time owners overspend month one and underbuild for year five. A 50/30/20 budget framework for fitting out a Malaysian first home."
 coverUrl: "photo-1600210492486-724fe5c67fb0"
-coverAlt: "Plate — budget worksheet on site"
+coverAlt: "Ilustrasi — dapur unit baru, perancangan renovation"
 coverCredit: "Unsplash"
 locale: en
 category: fit-out

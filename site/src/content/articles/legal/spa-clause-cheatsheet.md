@@ -2,7 +2,7 @@
 title: "SPA clauses to read before signing — a Malaysian first-buyer cheatsheet"
 description: "Eight SPA clauses that determine your rights as a first-time buyer in Malaysia. Schedule G/H, LAD, indemnity, completion period, and what to push back on."
 coverUrl: "photo-1600573472550-8090b5e0745e"
-coverAlt: "Plate — SPA inspection day"
+coverAlt: "Ilustrasi — review dokumen SPA dan kontrak"
 coverCredit: "Unsplash"
 locale: en
 category: legal

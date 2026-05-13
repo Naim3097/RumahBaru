@@ -2,7 +2,7 @@
 title: "DLP 24 months — strata vs landed: when the rules differ"
 description: "Defect Liability Period in Malaysia is 24 months under the HDA, but enforcement differs between strata and landed property. The practical difference."
 coverUrl: "photo-1600573472550-8090b5e0745e"
-coverAlt: "Plate — DLP claim survey"
+coverAlt: "Ilustrasi — defect inspection, DLP period"
 coverCredit: "Unsplash"
 locale: en
 category: vp-handover

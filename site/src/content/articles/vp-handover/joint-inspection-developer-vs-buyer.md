@@ -2,7 +2,7 @@
 title: "Joint inspection — buat sendiri atau hire profesional inspector?"
 description: "Panduan keputusan: bila pembeli rumah baru di Malaysia patut hire VP inspector profesional, dan bila boleh buat sendiri dengan checklist."
 coverUrl: "photo-1600566753190-17f0baa2a6c3"
-coverAlt: "Field log — joint inspection"
+coverAlt: "Ilustrasi — VP handover, new home inspection"
 coverCredit: "Unsplash"
 locale: ms
 category: vp-handover
