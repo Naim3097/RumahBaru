@@ -5,8 +5,8 @@
      Deliberately distinct from Hub 1 (cream/forest editorial) and Hub 2
      (graphite/amber industrial). Different palette, different fonts,
      different semantic class names — to avoid template fingerprinting. */
-  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Spectral", "Georgia", "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Cool off-white paper, deep ink, sage-green primary accent, warm tan support.
@@ -43,12 +43,13 @@ body {
   font-feature-settings: "calt", "kern", "ss01";
 }
 
-/* Display = serif. Color inherits so dark sections (navy hero) flip text
-   to paper without needing per-element overrides. */
+/* Display = same sans family as body for cleaner gazette reading. Color
+   inherits so dark sections (navy hero) flip text to paper without needing
+   per-element overrides. */
 h1, h2, h3, h4, .font-display {
   font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -0.005em;
+  font-weight: 600;
+  letter-spacing: -0.018em;
   color: inherit;
 }
 

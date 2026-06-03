@@ -44,6 +44,10 @@ export const SITE = {
  */
 export const FITOUT_REF = {
   url: 'https://binaplus.my/',
+  // Deep link used by the fit-out dossier note — points to the most relevant
+  // BINA+ guide rather than the homepage (better topical relevance for the
+  // single follow link on fit-out articles).
+  blogUrl: 'https://binaplus.my/blog/first-90-days-new-home-fit-out-plan',
   whatsapp: 'https://wa.me/60193428981',
   name: 'BINA+',
   fullName: 'BINA+ Design & Build',
