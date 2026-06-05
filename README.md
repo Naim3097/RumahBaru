@@ -2,7 +2,7 @@
 
 A standalone editorial site for first-time homeowners in Malaysia. Catches buyers in the **Vacant Possession → first 90 days** window — before they shop for renovation, before they hire a contractor, before they make the expensive mistakes.
 
-This is the third hub in the Boxup studio's anti-PBN SEO infrastructure. It does not link to or reference Hub 1 (renoklangvalley.my) or Hub 2 (kosrenovate.my). The single outbound follow-link in this hub points to BINA+ (binaplus.my), and only from three specific surfaces: the homepage P.S., the about page, and the appendix of two fit-out cluster articles.
+This is the third hub in the Boxup studio's anti-PBN SEO infrastructure. It does not link to or reference Hub 1 (renoklangvalley.my) or Hub 2 (kosrenovate.my). The single outbound follow-link in this hub points to BINA+ (binaplusdesign.my), and only from three specific surfaces: the homepage P.S., the about page, and the appendix of two fit-out cluster articles.
 
 ## Niche & angle
 
@@ -24,7 +24,7 @@ Distinct from the other hubs:
 Three rules enforced structurally:
 
 1. **Maximum 1 follow link to BINA+ per page.** Articles get the link only when `includeFitoutNote: true` in frontmatter (currently 2 of 14 articles). The component `BinaDossierNote.astro` is the single source of follow-links across the article surface. Header/footer/nav contain ZERO BINA references.
-2. **All other external links are auto-nofollowed** by `rehype-external-links` plugin (configured in `astro.config.mjs`). Including any inline mention of binaplus.my in body markdown.
+2. **All other external links are auto-nofollowed** by `rehype-external-links` plugin (configured in `astro.config.mjs`). Including any inline mention of binaplusdesign.my in body markdown.
 3. **Anchor pool is rotated.** Each surface uses a different anchor type — naked URL on About, partial-match phrase on Homepage, varying partials on the fit-out articles based on slug hash. No branded-anchor over-optimization.
 
 ## Content inventory (23 pages)

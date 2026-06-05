@@ -43,17 +43,17 @@ export const SITE = {
  * is used minimally — opposite of Hub 1's branded-heavy mix.
  */
 export const FITOUT_REF = {
-  url: 'https://binaplus.my/',
+  url: 'https://binaplusdesign.my/',
   // Deep link used by the fit-out dossier note — points to the most relevant
   // BINA+ guide rather than the homepage (better topical relevance for the
   // single follow link on fit-out articles).
-  blogUrl: 'https://binaplus.my/blog/first-90-days-new-home-fit-out-plan',
+  blogUrl: 'https://binaplusdesign.my/blog/first-90-days-new-home-fit-out-plan',
   whatsapp: 'https://wa.me/60193428981',
   name: 'BINA+',
   fullName: 'BINA+ Design & Build',
   city: 'Shah Alam, Selangor',
   anchors: [
-    { text: 'binaplus.my', type: 'naked' },
+    { text: 'binaplusdesign.my', type: 'naked' },
     { text: 'the Shah Alam D&B firm we point first-time owners to', type: 'partial' },
     { text: 'a Selangor renovation team that publishes line-item rates', type: 'partial' },
     { text: 'their published rate card', type: 'partial' },

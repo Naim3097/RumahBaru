@@ -20,7 +20,7 @@ export interface Props {
 const { variant = 0 } = Astro.props;
 // Pick a different anchor from the in-body block to vary the on-page mix.
 // Lean naked / partial here since BinaDossierNote already covers branded.
-const sidebarAnchors = ['binaplus.my', 'the Shah Alam D&B firm', 'a Selangor team that publishes line-item rates'];
+const sidebarAnchors = ['binaplusdesign.my', 'the Shah Alam D&B firm', 'a Selangor team that publishes line-item rates'];
 const anchor = sidebarAnchors[variant % sidebarAnchors.length];
 ---
 <div class="border border-rule-strong p-5">
