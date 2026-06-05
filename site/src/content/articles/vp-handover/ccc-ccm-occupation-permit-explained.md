@@ -27,7 +27,7 @@ Issued by the project's Principal Submitting Person (PSP) — usually the archit
 
 **What it certifies:**
 
-- The building has been completed in accordance with approved plans
+- The building has been completed matching approved plans
 - Statutory technical conditions (structural, fire safety, plumbing, electrical) have been met
 - Authority approvals (BOMBA, DOE, water, sewerage) are in place
 - The building is safe to occupy

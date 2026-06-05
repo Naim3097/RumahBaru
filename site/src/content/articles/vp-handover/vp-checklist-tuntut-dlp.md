@@ -35,7 +35,7 @@ Bawa juga: spirit level kecil, lampu suluh, socket tester (RM 15 di Shopee), pit
 
 ## Hari VP — joint inspection
 
-Joint inspection bermaksud anda dan wakil developer berjalan unit bersama. **Wakil developer dikehendaki tandatangan acknowledgement** untuk setiap defect yang anda flag. Kalau dia menolak — itu bendera merah. Suruh dia tunggu sementara anda dokumenkan setiap satu dengan gambar bertarikh, kemudian tandatangan satu form besar di akhir berisi semua item.
+Joint inspection bermaksud anda dan wakil developer berjalan unit bersama. **Wakil developer kena tandatangan acknowledgement** untuk setiap defect yang anda flag. Kalau dia menolak — itu bendera merah. Suruh dia tunggu sementara anda dokumenkan setiap satu dengan gambar bertarikh, kemudian tandatangan satu form besar di akhir berisi semua item.
 
 Berikut struktur ruang demi ruang yang saya guna untuk klien.
 

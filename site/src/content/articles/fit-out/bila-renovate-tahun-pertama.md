@@ -19,7 +19,7 @@ faqs:
     a: "Sekaligus biasanya lebih murah dari segi mobilisasi kontraktor — anda hanya bayar setup cost sekali. Tetapi secara fasa lebih bijak untuk pembeli pertama kali kerana keperluan sebenar anda baru jelas selepas tinggal beberapa bulan. Compromise yang paling kerap berhasil: kerja besar (dapur, bilik air, lantai) sekaligus, manakala built-in furniture dan deco secara fasa."
 ---
 
-Salah satu soalan paling kerap kami terima daripada pembeli rumah baru ialah: **bila masa terbaik untuk mula renovate?** Jawapannya bukan semudah "selepas VP" atau "selepas pindah". Ia bergantung pada jenis unit, status DLP, dan paling penting — sama ada anda telah pun benar-benar memahami bagaimana anda akan tinggal di rumah itu.
+Salah satu soalan paling kerap kami terima daripada pembeli rumah baru ialah: **bila masa terbaik untuk mula renovate?** Jawapannya bukan semudah "selepas VP" atau "selepas pindah". Ia bergantung pada jenis unit, status DLP, dan paling penting — sama ada anda dah benar-benar memahami bagaimana anda akan tinggal di rumah itu.
 
 Fail ini menyusun pertimbangan utama mengikut urutan masa, dengan kos sebenar setiap pilihan.
 

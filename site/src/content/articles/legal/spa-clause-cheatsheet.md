@@ -27,7 +27,7 @@ This file walks through the eight clauses that matter most for first-time buyers
 
 What it should say: VP is delivered when (a) CCC has been issued, (b) the unit is in handover-ready condition, (c) joint inspection has been conducted, and (d) you've signed the VP acknowledgement.
 
-What developers sometimes add: language that VP is "deemed delivered" 14 days after VP notice issued, regardless of whether CCC is in hand or whether joint inspection has happened.
+What developers sometimes add: language that VP is "deemed delivered" 14 days after VP notice issued, no matter whether CCC is in hand or whether joint inspection has happened.
 
 What to push back on: insist that VP delivery is conditional on CCC being verifiable at the appointment. "Deemed VP" without CCC means the 24-month DLP clock starts running on a unit that may not be legally occupiable.
 

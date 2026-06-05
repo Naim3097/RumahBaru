@@ -25,7 +25,7 @@ This file walks through the operational differences and what they mean for how y
 
 ## What both share
 
-Regardless of property type, the same statutory framework applies:
+No matter property type, the same statutory framework applies:
 
 - **24 months from VP**, not from purchase date or moving-in date
 - **Schedule G (landed) / Schedule H (strata)** of the HDA prescribe the standard SPA terms — you cannot contract out of the DLP, even if your developer's SPA tries to

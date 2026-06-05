@@ -23,7 +23,7 @@ The stamp duty bill is the single biggest "surprise" cost for first-time buyers 
 
 ## What you'll actually pay — the four buckets
 
-Every Malaysian property purchase generates four cost lines, regardless of buyer status:
+Every Malaysian property purchase generates four cost lines, no matter buyer status:
 
 1. **Stamp duty on the SPA** (Memorandum of Transfer / MOT instrument)
 2. **Stamp duty on the loan instrument** (Deed of Assignment / charge)

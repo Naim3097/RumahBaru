@@ -106,7 +106,7 @@ Retention sum 10% dipegang sehingga DLP tamat. Inilah leverage anda untuk pastik
 
 **Pertama: harga jauh lebih rendah dari yang lain.** Jika tiga quote anda ialah RM 75,000 / RM 78,000 / RM 52,000, quote terendah hampir pasti ada masalah — sama ada bahan lebih murah, scope kurang, atau plan untuk caj VO besar kemudian. Pilih dari dua quote tertinggi.
 
-**Kedua: tekanan untuk tandatangan cepat.** "Diskaun ini hanya untuk hari ini" atau "saya ada slot terbuka minggu depan, jika anda tak ambil saya isi dengan klien lain" adalah taktik tekanan. Kontraktor profesional yang baik biasanya memang busy, tetapi mereka memberi anda masa yang munasabah untuk membuat keputusan.
+**Kedua: tekanan untuk tandatangan cepat.** "Diskaun ini hanya untuk hari ini" atau "saya ada slot terbuka minggu depan, jika anda tak ambil saya isi dengan klien lain" adalah taktik tekanan. Kontraktor profesional yang baik biasanya memang busy, tetapi mereka memberi anda masa yang munasabah untuk buat keputusan.
 
 ## Pendekatan paling selamat untuk pembeli pertama kali
 
