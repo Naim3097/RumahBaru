@@ -42,13 +42,17 @@ export const SITE = {
  * Anchor mix tilts toward NAKED + PARTIAL on this hub. Branded ("BINA+")
  * is used minimally — opposite of Hub 1's branded-heavy mix.
  */
+// Hub-identifying pre-fill so Najiha can attribute the lead the moment the message lands.
+// Malay-leaning to match this hub's voice (Ammar, buyer's advocate, first-home audience).
+const WA_PREFILL = "Hai BINA+! Saya jumpa korang dari Rumah Baru — nak bincang pasal renovate / fit-out rumah baru.";
+
 export const FITOUT_REF = {
   url: 'https://binaplusdesign.my/',
   // Deep link used by the fit-out dossier note — points to the most relevant
   // BINA+ guide rather than the homepage (better topical relevance for the
   // single follow link on fit-out articles).
   blogUrl: 'https://binaplusdesign.my/blog/first-90-days-new-home-fit-out-plan',
-  whatsapp: 'https://wa.me/60193428981',
+  whatsapp: `https://wa.me/60193428981?text=${encodeURIComponent(WA_PREFILL)}`,
   name: 'BINA+',
   fullName: 'BINA+ Design & Build',
   city: 'Shah Alam, Selangor',
