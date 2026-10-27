@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 import rehypeExternalLinks from 'rehype-external-links';
 
 export default defineConfig({
-  site: 'https://rumahbaru.my',
+  site: 'https://www.panduanrumahbaru.my',
   trailingSlash: 'always',
   build: { format: 'directory' },
   // Anti-PBN: every external link in markdown bodies = nofollow noopener.

@@ -1,5 +1,5 @@
 /**
- * Site-wide constants for rumahbaru.my (Hub 3).
+ * Site-wide constants for www.panduanrumahbaru.my (Hub 3).
  *
  * Author persona DELIBERATELY differs from Hub 1 (Aisyah, design editor)
  * and Hub 2 (Hafiz, ex-QS). Different name, different background, different
@@ -15,7 +15,7 @@ export const SITE = {
   name: 'Rumah Baru',
   tagline: 'Panduan handover, loan, dan persediaan rumah baru di Malaysia.',
   taglineEn: "A first-time homeowner's dossier — VP, loans, defects, fit-out.",
-  url: 'https://rumahbaru.my',
+  url: 'https://www.panduanrumahbaru.my',
   defaultLocale: 'ms',
   locales: ['ms', 'en'] as const,
   author: {
